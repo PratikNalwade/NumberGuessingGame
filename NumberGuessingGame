@@ -1,0 +1,58 @@
+import java.util.Random;
+import java.util.Scanner;
+public class NumberGuessingGame
+{
+    public static void main(String[] args)
+    {
+       Scanner sc = new Scanner(System.in);
+       Random rand = new Random();
+       int RandomNumber = rand.nextInt(50) + 1;
+       int cnt=0;
+        //System.out.println(RandomNumber);
+       int attempt=4;
+
+        System.out.println("Enter your Guess from 1 To 50 (You Have Only 4 Attempt):");
+        while(cnt<attempt)
+        {
+        int UserGuess = sc.nextInt();
+         cnt++;
+
+
+            if(RandomNumber==UserGuess)
+            {
+                System.out.println("Correct, You Win! ");
+                System.out.println("You takes "+cnt+" Attempt to Win....");
+                break;
+            }
+            else if(RandomNumber>UserGuess)
+            {
+                System.out.println("Enter the Higher Number....");
+            }
+            else
+            {
+                System.out.println("Enter the Lower Number....");
+            }
+        }
+        if(cnt>=4) {
+            System.out.println("You have reached your 4 Attempt.........");
+        }
+        switch (cnt) {
+            case 1:
+                System.out.println("You Got 100 Points");
+                break;
+            case 2:
+                System.out.println("You Got 80 Points....");
+                break;
+            case 3:
+                System.out.println("You Got 60 Points....");
+                break;
+            case 4:
+                System.out.println("You Got 40 Points....");
+                break;
+            default:
+                System.out.println("You LOSS.....");
+                break;
+        }
+
+    }
+}
